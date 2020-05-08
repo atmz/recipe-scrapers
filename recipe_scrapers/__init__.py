@@ -36,6 +36,7 @@ from .mindmegette import Mindmegette
 from .misya import Misya
 from .mybakingaddiction import MyBakingAddiction
 from .nihhealthyeating import NIHHealthyEating
+from .nytimes import NYTimes
 from .panelinha import Panelinha
 from .paninihappy import PaniniHappy
 from .przepisy import Przepisy
@@ -94,6 +95,7 @@ SCRAPERS = {
     Misya.host(): Misya,
     MyBakingAddiction.host(): MyBakingAddiction,
     NIHHealthyEating.host(): NIHHealthyEating,
+    NYTimes.host(): NYTimes,
     Panelinha.host(): Panelinha,
     PaniniHappy.host(): PaniniHappy,
     Przepisy.host(): Przepisy,
@@ -166,7 +168,6 @@ def harvest(url, **options):
 def scrape_me(url_path):
 
     host_name = url_path_to_dict(url_path.replace('://www.', '://'))['host']
-
     try:
         scraper = SCRAPERS[host_name]
     except KeyError:
